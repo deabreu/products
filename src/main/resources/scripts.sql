@@ -7,6 +7,7 @@ create table if not exists exercise.products (
     weight NUMERIC(12,7),
     price NUMERIC(12,7),
     creation_date TIMESTAMP WITH TIME ZONE NOT NULL
+    last_update TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
 create table if not exists exercise.items (
@@ -25,5 +26,6 @@ create table if not exists exercise.order (
     shipping_address VARCHAR NOT NULL,
     total NUMERIC(12,7),
     creation_date TIMESTAMP WITH TIME ZONE NOT NULL
+    last_update TIMESTAMP WITH TIME ZONE NOT NULL
     );
 
