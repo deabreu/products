@@ -20,8 +20,13 @@ object Schema {
 
     def creationDate: Rep[ZonedDateTime] = column[ZonedDateTime]("creation_date")
 
-    override def * = (id, name, category, weight, price, creationDate) <> (Product.tupled, Product.unapply)
+    def lastUpdate = column[ZonedDateTime]("last_update")
+
+    override def * = (id, name, category, weight, price, creationDate, lastUpdate) <> (Product.tupled, Product.unapply)
   }
+
+  lazy val products = TableQuery[ProductDB]
+
 
   class ItemDB(tag: Tag) extends Table[Item](tag, Some("exercise"), "items") {
     def id: Rep[Long] = column[Long]("item_id", O.PrimaryKey, O.AutoInc)
@@ -36,10 +41,15 @@ object Schema {
 
     def creationDate: Rep[ZonedDateTime] = column[ZonedDateTime]("creation_date")
 
+    def lastUpdate = column[ZonedDateTime]("last_update")
+
     override def * = (id, productId, cost, shippingFee, taxAmount, creationDate) <> (Item.tupled, Item.unapply)
   }
 
-  class order(tag: Tag) extends Table[Order](tag, Some("exercise"), "products") {
+  lazy val items = TableQuery[ItemDB]
+
+
+  class OrderDB(tag: Tag) extends Table[Order](tag, Some("exercise"), "products") {
     def id: Rep[Long] = column[Long]("order_id", O.PrimaryKey, O.AutoInc)
 
     def customerName: Rep[String] = column[String]("customer_name")
@@ -52,7 +62,11 @@ object Schema {
 
     def creationDate: Rep[ZonedDateTime] = column[ZonedDateTime]("creation_date")
 
+    def lastUpdate = column[ZonedDateTime]("last_update")
+
     override def * = (id, customerName, contact, shippingAddress, total, creationDate) <> (Order.tupled, Order.unapply)
   }
+
+  lazy val orders = TableQuery[OrderDB]
 
 }
