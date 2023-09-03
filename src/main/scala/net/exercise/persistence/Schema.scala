@@ -41,8 +41,6 @@ object Schema {
 
     def creationDate: Rep[ZonedDateTime] = column[ZonedDateTime]("creation_date")
 
-    def lastUpdate = column[ZonedDateTime]("last_update")
-
     override def * = (id, productId, cost, shippingFee, taxAmount, creationDate) <> (Item.tupled, Item.unapply)
   }
 
@@ -64,7 +62,7 @@ object Schema {
 
     def lastUpdate = column[ZonedDateTime]("last_update")
 
-    override def * = (id, customerName, contact, shippingAddress, total, creationDate) <> (Order.tupled, Order.unapply)
+    override def * = (id, customerName, contact, shippingAddress, total, creationDate, lastUpdate) <> (Order.tupled, Order.unapply)
   }
 
   lazy val orders = TableQuery[OrderDB]
