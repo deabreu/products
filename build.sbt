@@ -15,7 +15,7 @@ lazy val product = (project in file("."))
 //Slick Code Generation
 slickCodegenSettings
 enablePlugins(CodegenPlugin)
-slickCodegenDatabaseUrl := "jdbc:postgresql://localhost:5432/postgres"
+slickCodegenDatabaseUrl := "jdbc:postgresql://localhost:5433/postgres"
 slickCodegenDatabaseUser := "postgres"
 slickCodegenDatabasePassword := "admin"
 slickCodegenDriver := slick.jdbc.PostgresProfile
