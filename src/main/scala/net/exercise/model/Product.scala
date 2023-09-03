@@ -2,7 +2,7 @@ package net.exercise.model
 
 import java.time.ZonedDateTime
 
-case class Product(
+final case class Product(
                   id: Long,
                   name: String,
                   category: String,

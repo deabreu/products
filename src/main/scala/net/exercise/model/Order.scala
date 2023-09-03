@@ -4,7 +4,7 @@ import java.time.ZonedDateTime
 
 
 //todo attach item list
-case class Order(
+final case class Order(
                   id: Long,
                   customerName: String,
                   contact: String,
