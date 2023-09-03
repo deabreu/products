@@ -1,4 +1,4 @@
-package model
+package net.exercise.model
 
 import java.time.ZonedDateTime
 
