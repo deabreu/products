@@ -8,5 +8,6 @@ case class Product(
                   category: String,
                   price: BigDecimal,
                   weight: BigDecimal,
-                  created: ZonedDateTime
+                  created: ZonedDateTime,
+                  updated: ZonedDateTime
                   )
