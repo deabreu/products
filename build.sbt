@@ -8,12 +8,12 @@ ThisBuild / organization := "net.exercise"
 lazy val product = (project in file("."))
   .settings(
     name := "Products",
-    libraryDependencies ++= Dependencies.database
+    libraryDependencies ++= Dependencies.database,
+    libraryDependencies ++= Dependencies.test
   )
 
 
 //Slick Code Generation
-slickCodegenSettings
 enablePlugins(CodegenPlugin)
 slickCodegenDatabaseUrl := "jdbc:postgresql://localhost:5433/postgres"
 slickCodegenDatabaseUser := "postgres"
