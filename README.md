@@ -1,0 +1,2 @@
+# products
+Scala products exercise
